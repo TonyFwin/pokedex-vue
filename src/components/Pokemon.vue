@@ -1,8 +1,10 @@
 <template>
-  <div class="max-w-sm rounded overflow-hidden shadow-l">
-    <img class="m-auto" :src="spritePath" alt="pokename" />
-    <h1>{{pokename}}</h1>
-  </div>
+  <router-link :to="pokemonPath">
+    <div class="max-w-sm rounded overflow-hidden shadow-l">
+      <img class="m-auto" :src="spritePath" alt="pokename" />
+      <h1>{{pokename}}</h1>
+    </div>
+  </router-link>
 </template>
 
 <script>
@@ -20,6 +22,9 @@ export default {
   computed: {
     spritePath: function() {
       return `${START_PATH}${this.pokeindex + 1}${END_PATH}`;
+    },
+    pokemonPath: function() {
+      return `/pokemon/${this.pokeindex + 1}`;
     }
     // capitalizedName: function() {
     //   return this.name.charAt(0).toUpperCase() + this.name.slice(1);
