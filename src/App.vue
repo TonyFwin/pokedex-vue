@@ -1,18 +1,21 @@
 <template>
-  <div id="app" class="relative pt-16 pb-32" style="min-height: 75vh;">
-    <h1 class="text-xl">Pokemon</h1>
-    <div>
-      <PokemonList />
-    </div>
+  <div id="app">
+    <Header :title="title" />
+    <router-view />
   </div>
 </template>
 
 <script>
-import PokemonList from "./components/PokemonList";
+import Header from "./components/Header.vue";
 
 export default {
   name: "App",
-  components: { PokemonList }
+  data() {
+    return {
+      title: "PokeDex"
+    };
+  },
+  components: { Header }
 };
 </script>
 
@@ -23,6 +26,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
