@@ -22,7 +22,7 @@ export default {
   methods: {
     fetchData: async function() {
       try {
-        const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151/");
+        const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=36/");
         const data = await res.json();
         this.pokemonList = data["results"];
       } catch (e) {
