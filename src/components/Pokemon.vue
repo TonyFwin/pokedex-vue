@@ -1,6 +1,6 @@
 <template>
   <router-link :to="pokemonPath">
-    <div class="max-w-sm rounded overflow-hidden shadow-l">
+    <div class="card m-1 rounded-lg p-6 shadow-md hover:shadow-xl">
       <img class="m-auto" :src="spritePath" alt="pokename" />
       <h1>{{pokename}}</h1>
     </div>
@@ -45,4 +45,11 @@ export default {
 </script>
 
 <style>
+.card {
+  transition: 0.3ms ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
 </style>
