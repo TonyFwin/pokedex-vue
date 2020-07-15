@@ -1,50 +1,51 @@
 <template>
-  <div v-if="!loading" class="mt-3">
-    <div class="details-top">
-      <h1>{{pokemon.name}}</h1>
-      <div>
-        <div>
-          <span v-for="(type, i) in pokemon.types" :key="i">{{type.type.name}}</span>
-        </div>
-        <div>#{{$route.params.id}}</div>
+  <div v-if="!loading" class="mt-3 px-8 md:px-16">
+    <div class="flex flex-wrap mt-2 justify-center">
+      <div class="w-full flex justify-between md:justify-center">
+        <h1 class="text-center text-3xl mr-2">{{pokemon.name}}</h1>
+        <p>#{{$route.params.id}}</p>
+      </div>
+      <div class="w-full md:w-3/12 flex justify-between text-center md:text-left mt-2">
+        <span
+          class="border-2 border-gray-200 rounded-lg capitalize px-2"
+          v-for="(type, i) in pokemon.types"
+          :key="i"
+        >{{type.type.name}}</span>
       </div>
     </div>
 
     <div class="detail-header flex flex-wrap">
-      <div class="detail-sprites">
-        <div class="flex justify-center">
-          <img :src="pokemon.sprites.front_default" alt="pokemon.name" />
-        </div>
+      <div class="w-full flex justify-center">
+        <img :src="pokemon.sprites.front_default" alt="pokemon.name" />
       </div>
     </div>
 
-    <div class="w-full">
-      <h2>Description</h2>
+    <div class="w-full text-left">
+      <h2 class="text-lg">Description:</h2>
       <p>{{speciesData.flavor_text_entries[1].flavor_text}}</p>
     </div>
-    <div>
-      <h2>About</h2>
-      <div class>
-        <p>Genus: {{speciesData.genera[2].genus}}</p>
+    <div class="mt-4"></div>
+    <div class="flex flex-wrap">
+      <div class="w-full text-left">
         <p>Height: {{pokemon.height}} cm</p>
         <p>Weight: {{pokemon.weight}} kg</p>
         <p>
           Abilities:
           <span
+            class="mr-2 capitalize"
             v-for="(ability,i) in pokemon.abilities"
             :key="i"
           >{{formatStat(ability.ability.name)}}</span>
         </p>
       </div>
-    </div>
-    <div class="detail-stats">
-      <h2>Stats</h2>
-      <ul class="statList">
-        <li
-          v-for="(stat,i) in pokemon.stats"
-          :key="i"
-        >{{formatStat(stat.stat.name)}}: {{stat.base_stat}}</li>
-      </ul>
+      <div class="w-full">
+        <ul class="statList text-left">
+          <li
+            v-for="(stat,i) in pokemon.stats"
+            :key="i"
+          >{{formatStat(stat.stat.name)}}: {{stat.base_stat}}</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div v-else>Loading...</div>
