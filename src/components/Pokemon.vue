@@ -1,7 +1,7 @@
 <template>
   <router-link :to="pokemonPath">
     <div class="card m-1 rounded-lg p-6 shadow-md hover:shadow-xl">
-      <img class="m-auto" :src="spritePath" alt="pokename" />
+      <img class="m-auto" :src="spritePath" :alt="pokename" />
       <h1>{{pokename}}</h1>
     </div>
   </router-link>
@@ -26,9 +26,6 @@ export default {
     pokemonPath: function() {
       return `/pokemon/${this.pokeindex + 1}`;
     }
-    // capitalizedName: function() {
-    //   return this.name.charAt(0).toUpperCase() + this.name.slice(1);
-    // }
   },
   methods: {
     fetchData: async function() {
