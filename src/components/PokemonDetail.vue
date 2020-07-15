@@ -2,7 +2,7 @@
   <div v-if="!loading" class="mt-3 px-8 md:px-16">
     <div class="flex flex-wrap mt-2 justify-center">
       <div class="w-full flex justify-between md:justify-center">
-        <h1 class="text-center text-3xl mr-2">{{pokemon.name}}</h1>
+        <h1 class="capitalize text-center text-3xl mr-2">{{pokemon.name}}</h1>
         <p>#{{$route.params.id}}</p>
       </div>
       <div class="w-full md:w-3/12 flex justify-between text-center md:text-left mt-2">
@@ -41,6 +41,7 @@
       <div class="w-full">
         <ul class="statList text-left">
           <li
+            class="capitalize"
             v-for="(stat,i) in pokemon.stats"
             :key="i"
           >{{formatStat(stat.stat.name)}}: {{stat.base_stat}}</li>
@@ -97,10 +98,6 @@ export default {
 </script>
 
 <style>
-h1,
-li {
-  text-transform: capitalize;
-}
 .detail-sprites,
 .detail-stats {
   max-width: 100%;

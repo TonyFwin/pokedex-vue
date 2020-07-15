@@ -2,7 +2,7 @@
   <router-link :to="pokemonPath">
     <div class="card m-1 rounded-lg p-6 shadow-md hover:shadow-xl">
       <img class="m-auto" :src="spritePath" :alt="pokename" />
-      <h1>{{pokename}}</h1>
+      <h1 class="capitalize">{{pokename}}</h1>
     </div>
   </router-link>
 </template>
